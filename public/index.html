@@ -14,11 +14,12 @@
         socket.on('disconnect', function() {
             console.log('Perdimos conexión');
         });
-        socket.emit('mensaje', {
-            nombre: 'Jaime Pérez Frias'
+        socket.on('nuevo-mensaje', function(payload) {
+            console.log('Nuevo-Mensaje', payload);
         });
-        socket.on('mensaje', function(payload) {
-            console.log('Mensaje ', payload);
+        socket.on('active-bands', function(payload) {
+            console.clear();
+            console.table(payload);
         });
     </script>
 </head>
